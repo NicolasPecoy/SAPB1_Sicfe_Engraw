@@ -1,0 +1,12 @@
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\Debug\FactElectronicaSICFE.exe
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\Debug\FactElectronicaSICFE.pdb
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x86\Debug\FactElectronicaSICFE.Form1.resources
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x86\Debug\FactElectronicaSICFE.Properties.Resources.resources
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x86\Debug\FactElectronicaSICFE.csproj.GenerateResource.Cache
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x86\Debug\FactElectronicaSICFE.exe
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x86\Debug\FactElectronicaSICFE.pdb
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\Debug\FactElectronicaSICFE.exe.config
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\Debug\itextsharp.dll
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\Debug\PdfPrintingNet.dll
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\Debug\itextsharp.xml
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x86\Debug\FactElectronicaSICFE.csprojResolveAssemblyReference.cache

@@ -1,0 +1,151 @@
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.Cache
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+E:\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csprojResolveAssemblyReference.cache
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.Cache
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+E:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.Cache
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\Google Drive\Desarrollo INVENZIS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csprojResolveAssemblyReference.cache
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+C:\Proyectos\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.Cache
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.cache
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Users\npeco\Desktop\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csprojAssemblyReference.cache
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.Cache
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+D:\DATA\INVENZIS\DESARROLLOS\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csprojResolveAssemblyReference.cache
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csprojAssemblyReference.cache
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.cache
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+F:\Invenzis Addons\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.cache
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CoreCompileInputs.cache
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Invenzis\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.AssemblyReference.cache
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.AssemblyReference.cache
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.cache
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CoreCompileInputs.cache
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.AssemblyReference.cache
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\EnviarDocumentos.srf
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ImprimirDocumentos.srf
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe.config
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ThoughtWorks.QRCode.dll
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.ResolveComReference.cache
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.Form1.resources
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.Properties.Resources.resources
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.cache
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CoreCompileInputs.cache
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
