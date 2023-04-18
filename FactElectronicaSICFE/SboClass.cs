@@ -3061,11 +3061,11 @@ namespace FacturacionElectronica
                     {
                         while (!oRSMyTableBoleta.EoF)
                         {
-                            string generaBoleta = (string)oRSMyTableBoleta.Fields.Item("QryGroup30").Value;
+                            string generaBoleta = (string)oRSMyTableBoleta.Fields.Item("QryGroup19").Value;
                             string generaResguardo = "N";
                             if (descEmpresa.Equals("ENGRW"))
                             {
-                                generaResguardo = (string)oRSMyTableBoleta.Fields.Item("QryGroup21").Value;
+                                generaResguardo = (string)oRSMyTableBoleta.Fields.Item("QryGroup19").Value;
                             }
 
                             if (!String.IsNullOrEmpty(generaBoleta))
@@ -28932,7 +28932,7 @@ namespace FacturacionElectronica
 
                             decimal montoRetencion = 0;
                             if (descEmpresa.ToString().Equals("ENGRW")) //ASPL - 2019.04.15 - Cambio por moneda local en USD, se debe obtener de moneda del sistema UYU.
-                                montoRetencion = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value; // Monto del Item
+                                montoRetencion = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value; // Monto del Item
                             else
                                 montoRetencion = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value; // Monto del Item
 
@@ -29001,7 +29001,7 @@ namespace FacturacionElectronica
                                                     itemRetPer.Tasa = (decimal)oRSMyTable3.Fields.Item("PrctBsAmnt").Value;
                                                     itemRetPer.Tasa = Math.Round(itemRetPer.Tasa, 2);
                                                     itemRetPer.TasaSpecified = true;
-                                                    itemRetPer.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value;
+                                                    itemRetPer.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value;
                                                     itemRetPer.ValRetPerc = Math.Round(itemRetPer.ValRetPerc, 2); // Redondeos
                                                     arrayItemRetPer[cont] = itemRetPer;
                                                     //item.RetencPercep[0] = itemRetPer;
@@ -29012,7 +29012,7 @@ namespace FacturacionElectronica
 
                                                     Totales_ResgRetencPercep totRetPerUnidad = new Totales_ResgRetencPercep();
                                                     totRetPerUnidad.CodRet = (string)oRSMyTable3.Fields.Item("U_COD_DGI").Value;
-                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value;
+                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value;
                                                     totRetPerUnidad.ValRetPerc = Math.Round(totRetPerUnidad.ValRetPerc, 2);
                                                     arrayRetPer[cont] = totRetPerUnidad;
                                                 }
@@ -34540,8 +34540,9 @@ namespace FacturacionElectronica
                                     }
                                 }
 
-
-                                Item_Det_Boleta[] detalle = new Item_Det_Boleta[cantLineasDocumento];
+                                objDoc.lineas = QueryALista("SELECT * FROM IVZ_FE_OBJ18_ITEMS WHERE DocEntry = " + codigoDocEntry);
+                                Item_Det_Boleta[] detalle = new Item_Det_Boleta[objDoc.lineas.Count];
+                                
                                 int cont = 0;
                                 if (objDoc.lineas != null)
                                 {
@@ -34566,7 +34567,7 @@ namespace FacturacionElectronica
                                         string campo = "";
                                         if (descEmpresa.Equals("ENGRW"))
                                         {
-                                            campo = "U_TLana" + (1 + l);
+                                            //campo = "U_TLana" + (1 + l);
                                             item.NomItem = "";//oRSMyTable.Fields.Item(campo).Value.ToString();
                                         }
 
@@ -34657,8 +34658,8 @@ namespace FacturacionElectronica
                                                 itemDetCode.Cod = lineaRec.ItemCode;
                                                 if (descEmpresa.Equals("ENGRW"))
                                                 {
-                                                    campo = "U_TLana" + (1 + l);
-                                                    itemDetCode.Cod = oRSMyTable.Fields.Item(campo).Value.ToString();
+                                                    //campo = "U_TLana" + (1 + l);
+                                                    //itemDetCode.Cod = oRSMyTable.Fields.Item(campo).Value.ToString();
                                                 }
                                                 itemDetCodeArray[0] = itemDetCode;
 
@@ -35328,7 +35329,7 @@ namespace FacturacionElectronica
                                 else if (moneda.Equals("CAD") || moneda.Equals("CAN"))
                                     totales.TpoMoneda = TipMonType.CAD; // Dólar Canadiense
 
-                                totales.CantLinDet = cantLineasDocumento.ToString();
+                                totales.CantLinDet = objDoc.lineas.Count.ToString();
                                 totales.TpoCambio = getDecimal(cotizacion.ToString());
                                 totales.TpoCambio = decimal.Round(totales.TpoCambio, 3);
                                 if (totales.TpoCambio != 0)
@@ -39422,12 +39423,12 @@ namespace FacturacionElectronica
                     tabla = "ORPC";
 
                 oRSMyTable = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                string query = "select top 1 QryGroup30 , QryGroup21 from OCRD as oc inner join " + tabla + " as op on op.CardCode = oc.CardCode and oc.CardType = 'S' " +
+                string query = "select top 1 QryGroup30 , QryGroup19 from OCRD as oc inner join " + tabla + " as op on op.CardCode = oc.CardCode and oc.CardType = 'S' " +
                 "where DocNum = '" + pCodigoFactura + "' order by op.DocEntry desc";
 
                 if (tipoConexionBaseDatos.ToString().Equals("HANNA"))
                 {
-                    query = "select top 1 \"QryGroup30\" , \"QryGroup21\" from OCRD as oc inner join " + tabla + " as op on op.\"CardCode\" = oc.\"CardCode\" and oc.\"CardType\" = \'S\' " +
+                    query = "select top 1 \"QryGroup30\" , \"QryGroup19\" from OCRD as oc inner join " + tabla + " as op on op.\"CardCode\" = oc.\"CardCode\" and oc.\"CardType\" = \'S\' " +
                     "where \"DocNum\" = \'" + pCodigoFactura + "\' order by op.\"DocEntry\" desc";
                 }
                 oRSMyTable.DoQuery(query);
@@ -45530,7 +45531,7 @@ namespace FacturacionElectronica
                     query = "select DISTINCT DocNum as DocEntry,DocNum, DocDate, ovp.CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotalSy else DocTotal end as DocTotal, case when Canceled = 'N' then 'Resguardo' else 'Cancelacion eResg' end as Tipo from OPCH as ovp " +
                      "inner join ControlFE as cfe on cfe.DocEntry = ovp.DocEntry and cfe.ObjType = 18 " +
                      "inner join OCRD as oc on oc.CardCode = ovp.CardCode and oc.CardType = 'S' " +
-                     " where cfe.Estado = '0' AND QryGroup30 = 'N' AND CodResguardo is not null and CodResguardo <> '' and Canceled = 'N' ";
+                     " where cfe.Estado = '0' AND QryGroup19 = 'N' AND CodResguardo is not null and CodResguardo <> '' and Canceled = 'N' ";
 
                     if (tipoConexionBaseDatos.ToString().Equals("HANNA"))
                     {
@@ -46128,14 +46129,14 @@ namespace FacturacionElectronica
                     query = "select DISTINCT ovp.DocEntry,DocNum, DocDate, ovp.CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotal else DocTotalFC end as DocTotal, case when Canceled = 'N' then 'Boleta Entrada' else 'Cancelacion Boleta' end as Tipo from OPCH as ovp " +
                      "inner join ControlFE as cfe on cfe.DocEntry = ovp.DocEntry and cfe.ObjType = 18 " +
                      "inner join OCRD as oc on oc.CardCode = ovp.CardCode and oc.CardType = 'S' " +
-                     " where cfe.Estado = '0' AND QryGroup30 = 'Y' and Canceled = 'N' ";// AND isnull(CodResguardo, '') = '' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
+                     " where cfe.Estado = '0' AND QryGroup19 = 'Y' and Canceled = 'N' ";// AND isnull(CodResguardo, '') = '' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
 
                     if (tipoConexionBaseDatos.ToString().Equals("HANNA"))
                     {
                         query = "select ovp.\"DocEntry\",\"DocNum\", \"DocDate\", ovp.\"CardName\", case when \"DocCur\" = '" + monedaStrSimbolo.ToString() + "' or \"DocCur\" = '" + monedaStrISO.ToString() + "' then \"DocTotal\" else \"DocTotalFC\" end as DocTotal, case when \"CANCELED\" = 'N' then 'Boleta Entrada' else 'Cancelacion Boleta' end as Tipo from \"OPCH\" as ovp " +
                            "inner join \"ControlFE\" as cfe on cfe.\"DOCENTRY\" = ovp.\"DocEntry\" and cfe.\"OBJTYPE\" = \'18\' " +
                             "inner join \"OCRD\" as oc on oc.\"CardCode\" = ovp.\"CardCode\" and oc.\"CardType\" = \'S\' " +
-                           " where cfe.\"ESTADO\" = \'0\' AND \"QryGroup30\" = \'Y\' and \"CANCELED\" = \'N\' and IFNULL (\"CODRESGUARDO\", NULL) = \'\' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
+                           " where cfe.\"ESTADO\" = \'0\' AND \"QryGroup19\" = \'Y\' and \"CANCELED\" = \'N\' and IFNULL (\"CODRESGUARDO\", NULL) = \'\' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
                     }
 
                     if (!String.IsNullOrEmpty(codigo.ToString()) && codigo != 0) // Si el codigo no es vacio filtra por ese campo
@@ -46199,14 +46200,14 @@ namespace FacturacionElectronica
                     query = "select ovp.DocEntry,DocNum, DocDate, ovp.CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotal else DocTotalFC end as DocTotal, 'Cancelacion Boleta' as Tipo from ORPC as ovp " +
                     "inner join ControlFE as cfe on cfe.DocEntry = ovp.DocEntry and cfe.ObjType = 19 " +
                     "inner join OCRD as oc on oc.CardCode = ovp.CardCode and oc.CardType = 'S' " +
-                    " where cfe.Estado = '0' AND QryGroup30 = 'Y' and Canceled = 'N' AND isnull(CodResguardo, '') = '' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
+                    " where cfe.Estado = '0' AND QryGroup19 = 'Y' and Canceled = 'N' AND isnull(CodResguardo, '') = '' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
 
                     if (tipoConexionBaseDatos.ToString().Equals("HANNA"))
                     {
                         query = "select ovp.\"DocEntry\",\"DocNum\", \"DocDate\", ovp.\"CardName\", case when \"DocCur\" = '" + monedaStrSimbolo.ToString() + "' or \"DocCur\" = '" + monedaStrISO.ToString() + "' then \"DocTotal\" else \"DocTotalFC\" end as DocTotal, 'Cancelacion Boleta' as Tipo from \"ORPC\" as ovp " +
                            "inner join \"ControlFE\" as cfe on cfe.\"DOCENTRY\" = ovp.\"DocEntry\" and cfe.\"OBJTYPE\" = \'19\' " +
                             "inner join \"OCRD\" as oc on oc.\"CardCode\" = ovp.\"CardCode\" and oc.\"CardType\" = \'S\' " +
-                           " where cfe.\"ESTADO\" = \'0\' AND \"QryGroup30\" = \'Y\' and \"CANCELED\" = \'N\' and IFNULL (\"CODRESGUARDO\", NULL) = \'\' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
+                           " where cfe.\"ESTADO\" = \'0\' AND \"QryGroup19\" = \'Y\' and \"CANCELED\" = \'N\' and IFNULL (\"CODRESGUARDO\", NULL) = \'\' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
                     }
 
                     if (!String.IsNullOrEmpty(codigo.ToString()) && codigo != 0) // Si el codigo no es vacio filtra por ese campo
@@ -48001,6 +48002,29 @@ namespace FacturacionElectronica
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(oRSMyTable);
                 oRSMyTable = null;
             }
+        }
+
+        public List<clsObjDocumentoLineas> QueryALista(string query)
+        {
+            // Create Recordset object and execute query
+            Recordset rs = (Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+            rs.DoQuery(query);
+            List<clsObjDocumentoLineas> lista = new List<clsObjDocumentoLineas>();
+            
+            while (!rs.EoF)
+            {
+                clsObjDocumentoLineas doc = new clsObjDocumentoLineas();
+                doc.ItemCode = rs.Fields.Item("NomItem").Value.ToString(); 
+                doc.Cantidad = Convert.ToDecimal(rs.Fields.Item("Cantidad").Value);
+                doc.UnidadMedida = rs.Fields.Item("UniMed").Value.ToString();
+                doc.PrecioAntesDelDescuento = Convert.ToDecimal(rs.Fields.Item("PrecioUnitario").Value);
+                doc.TotalLinea = Convert.ToDecimal(rs.Fields.Item("MontoItem").Value);
+                doc.MonedaLinea = rs.Fields.Item("Moneda").Value.ToString();
+                lista.Add(doc);
+                rs.MoveNext();
+            }
+
+            return lista;
         }
 
         public string obtenerQueryAgrupado(int pDocEntry, int pDocNum, string pFormFactura, bool pAgrupado, string pTabla, string pTablaLineas, string pFiltroAdicional)
