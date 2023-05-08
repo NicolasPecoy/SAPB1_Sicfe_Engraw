@@ -131,7 +131,6 @@ C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\De
 C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
 C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
 C:\Users\sap\Desktop\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
-C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.AssemblyReference.cache
 C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
 C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
 C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\bin\x64\Debug\ConfiguracionAddOn.srf
@@ -149,3 +148,4 @@ C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\De
 C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.GenerateResource.cache
 C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CoreCompileInputs.cache
 C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
+C:\INVENZIS\Invenzis\Engraw\FactElectronicaSICFE\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.AssemblyReference.cache

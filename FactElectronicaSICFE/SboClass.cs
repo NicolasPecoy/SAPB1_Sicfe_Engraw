@@ -34568,7 +34568,7 @@ namespace FacturacionElectronica
                                         if (descEmpresa.Equals("ENGRW"))
                                         {
                                             //campo = "U_TLana" + (1 + l);
-                                            item.NomItem = "";//oRSMyTable.Fields.Item(campo).Value.ToString();
+                                            item.NomItem = lineaRec.ItemCode;//oRSMyTable.Fields.Item(campo).Value.ToString();
                                         }
 
                                         item.IndAgenteRespSpecified = true;
@@ -35012,12 +35012,16 @@ namespace FacturacionElectronica
                                         if (indicador.Equals("12"))
                                         {
                                             item.IndFact = Item_Det_BoletaIndFact.Item12;
-                                            TotalItemsIvaSuspens += item.MontoItem;
+                                            TotalItemsNoGravados += item.MontoItem;
+                                            //item.IndFact = Item_Det_BoletaIndFact.Item12;
+                                            //TotalItemsIvaSuspens += item.MontoItem;
                                         }
                                         else if (indicador.Equals("13") || indicador.Equals(""))
                                         {
-                                            item.IndFact = Item_Det_BoletaIndFact.Item13; // NO Contribuyente
+                                            item.IndFact = Item_Det_BoletaIndFact.Item13;
                                             TotalItemsNoGravados += item.MontoItem;
+                                            /*item.IndFact = Item_Det_BoletaIndFact.Item13; // NO Contribuyente
+                                            TotalItemsNoGravados += item.MontoItem;*/
                                         }
                                         else if (indicador.Equals("14"))
                                         {
@@ -35096,10 +35100,10 @@ namespace FacturacionElectronica
                                             {
                                                 try
                                                 {
-                                                    decimal montoItemRetencion = (decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value;
+                                                    decimal montoItemRetencion = Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / item.MontoItem, 2);
                                                     Totales_BoletaRetencPercep totRetPerUnidad = new Totales_BoletaRetencPercep();
                                                     totRetPerUnidad.CodRet = (string)oRSMyTableRetenciones.Fields.Item("U_COD_DGI").Value;
-                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value;
+                                                    totRetPerUnidad.ValRetPerc = Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / item.MontoItem, 2);
                                                     //arrayRetPer[contadorRetenciones] = totRetPerUnidad;
                                                     if (arrayRetPer[contadorRetenciones] == null)
                                                     {
