@@ -34368,7 +34368,7 @@ namespace FacturacionElectronica
                                             // Se agregó este bloque de código para sacar el Ruc desde la ficha del Cliente, ya que lo sacaba de la factura y la misma estaba vacia
                                             rucDocumento = oRSMyTable.Fields.Item("LicTradNum").Value; // Aca se guarda el RUC del documento
                                             rucDocumento = rucDocumento.ToString().Replace(".", "").Replace("-", "");
-
+                                            rucDocumento = "0"; //Seteo para prueba Nicolas Pecoy
                                             //encabezado.IdDoc.TipoCFE = IdDoc_BoletaTipoCFE.Item151;
 
                                             if (rucDocumento.ToString().Length == 12) // Tiene RUC
@@ -35100,10 +35100,11 @@ namespace FacturacionElectronica
                                             {
                                                 try
                                                 {
-                                                    decimal montoItemRetencion = Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / item.MontoItem, 2);
+                                                    decimal montoItemRetencion = Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / objDoc.lineas.Count, 2);
                                                     Totales_BoletaRetencPercep totRetPerUnidad = new Totales_BoletaRetencPercep();
                                                     totRetPerUnidad.CodRet = (string)oRSMyTableRetenciones.Fields.Item("U_COD_DGI").Value;
-                                                    totRetPerUnidad.ValRetPerc = Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / item.MontoItem, 2);
+                                                    decimal prueba = (decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value;
+                                                    totRetPerUnidad.ValRetPerc = Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / objDoc.lineas.Count, 2);//Math.Round((decimal)oRSMyTableRetenciones.Fields.Item("WTAmnt").Value / item.MontoItem, 2);
                                                     //arrayRetPer[contadorRetenciones] = totRetPerUnidad;
                                                     if (arrayRetPer[contadorRetenciones] == null)
                                                     {
