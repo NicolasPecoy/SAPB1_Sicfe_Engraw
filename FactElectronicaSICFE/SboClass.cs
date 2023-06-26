@@ -28988,7 +28988,7 @@ namespace FacturacionElectronica
                                                 try
                                                 {
                                                     RetPerc_Resg itemRetPer = new RetPerc_Resg();
-                                                    itemRetPer.MntSujetoaRet = (decimal)oRSMyTable3.Fields.Item("TaxbleAmnt").Value;
+                                                    itemRetPer.MntSujetoaRet = (decimal)oRSMyTable3.Fields.Item("TxblAmntSC").Value;
                                                     itemRetPer.MntSujetoaRet = Math.Round(itemRetPer.MntSujetoaRet, 2); // Redondeos
                                                     itemRetPer.CodRet = (string)oRSMyTable3.Fields.Item("U_COD_DGI").Value;
 
@@ -29001,7 +29001,7 @@ namespace FacturacionElectronica
                                                     itemRetPer.Tasa = (decimal)oRSMyTable3.Fields.Item("PrctBsAmnt").Value;
                                                     itemRetPer.Tasa = Math.Round(itemRetPer.Tasa, 2);
                                                     itemRetPer.TasaSpecified = true;
-                                                    itemRetPer.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value;
+                                                    itemRetPer.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value;
                                                     itemRetPer.ValRetPerc = Math.Round(itemRetPer.ValRetPerc, 2); // Redondeos
                                                     arrayItemRetPer[cont] = itemRetPer;
                                                     //item.RetencPercep[0] = itemRetPer;
@@ -29012,7 +29012,7 @@ namespace FacturacionElectronica
 
                                                     Totales_ResgRetencPercep totRetPerUnidad = new Totales_ResgRetencPercep();
                                                     totRetPerUnidad.CodRet = (string)oRSMyTable3.Fields.Item("U_COD_DGI").Value;
-                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value;
+                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value;
                                                     totRetPerUnidad.ValRetPerc = Math.Round(totRetPerUnidad.ValRetPerc, 2);
                                                     arrayRetPer[cont] = totRetPerUnidad;
                                                 }
@@ -34368,7 +34368,7 @@ namespace FacturacionElectronica
                                             // Se agregó este bloque de código para sacar el Ruc desde la ficha del Cliente, ya que lo sacaba de la factura y la misma estaba vacia
                                             rucDocumento = oRSMyTable.Fields.Item("LicTradNum").Value; // Aca se guarda el RUC del documento
                                             rucDocumento = rucDocumento.ToString().Replace(".", "").Replace("-", "");
-                                            rucDocumento = "0"; //Seteo para prueba Nicolas Pecoy
+                                            //rucDocumento = "0"; //Seteo para prueba Nicolas Pecoy
                                             //encabezado.IdDoc.TipoCFE = IdDoc_BoletaTipoCFE.Item151;
 
                                             if (rucDocumento.ToString().Length == 12) // Tiene RUC
@@ -34541,15 +34541,16 @@ namespace FacturacionElectronica
                                 }
 
                                 objDoc.lineas = QueryALista("SELECT * FROM IVZ_FE_OBJ18_ITEMS WHERE DocEntry = " + codigoDocEntry);
+                                //TotalItemsNoGravados = 0;
                                 Item_Det_Boleta[] detalle = new Item_Det_Boleta[objDoc.lineas.Count];
-                                
+
                                 int cont = 0;
                                 if (objDoc.lineas != null)
                                 {
                                     for (int l = 0; l < objDoc.lineas.Count; l++)
                                     {
+                                        
                                         clsObjDocumentoLineas lineaRec = objDoc.lineas[l];
-
                                         // Solo para la Tentacion, por los problemas de descuento y redondeo
                                         if (descEmpresa.ToString().Equals("TENTA") && objDoc.DescuentoDocPorcentaje != 0 && (montoDescuentoGlobal != 0 || montoDescuentoGlobalME != 0))
                                         {
@@ -35016,7 +35017,7 @@ namespace FacturacionElectronica
                                             //item.IndFact = Item_Det_BoletaIndFact.Item12;
                                             //TotalItemsIvaSuspens += item.MontoItem;
                                         }
-                                        else if (indicador.Equals("13") || indicador.Equals(""))
+                                        else if (indicador.Equals("13"))
                                         {
                                             item.IndFact = Item_Det_BoletaIndFact.Item13;
                                             TotalItemsNoGravados += item.MontoItem;
@@ -35028,7 +35029,7 @@ namespace FacturacionElectronica
                                             item.IndFact = Item_Det_BoletaIndFact.Item14; // Contribuyente Monotributo
                                             TotalItemsNoGravados += item.MontoItem;
                                         }
-                                        else if (indicador.Equals("15"))
+                                        else if (indicador.Equals("15") || !String.IsNullOrEmpty(oRSMyTable.Fields.Item("NumAtCard").Value.ToString()))
                                         {
                                             item.IndFact = Item_Det_BoletaIndFact.Item15; // Contribuyente IMEBA
                                             TotalItemsNoGravados += item.MontoItem;
@@ -43611,7 +43612,7 @@ namespace FacturacionElectronica
                         }
                         break;
                     case "141":
-                        query = "UPDATE OPCH set FolioPref = '" + serie.ToString() + "', FolioNum = '" + nro.ToString() + "', " + campoReferencia + " = '" + tipo.ToString() + "',Printed = 'Y' where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "' "; // Factura de Proveedor
+                        query = "UPDATE OPCH set FolioPref = isnull(FolioPref,'" + serie.ToString() + "'), FolioNum = isnull(FolioNum,'" + nro.ToString() + "'), U_IVZ_RESGUARDO = (CASE When FolioNum IS NOT NULL THEN '" + serie.ToString() + nro.ToString() + "' END), " + campoReferencia + " = '" + tipo.ToString() + "',Printed = 'Y' where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "' "; // Factura de Proveedor
                         queryAsientos = "UPDATE OJDT set FolioPref = '" + serie.ToString() + "', FolioNum = '" + nro.ToString() + "' where TransId = (select TransId from OPCH where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "') ";
                         if (tipoConexionBaseDatos.ToString().Equals("HANNA"))
                         {
@@ -46914,16 +46915,16 @@ namespace FacturacionElectronica
                 oButton2 = oFormEnviarDocumento.Items.Item("21").Specific; // Boton de enviar documento manualmente
 
                 // Boton de dar baja manual al documento solo para usuario manager o Henry
-                if (esSuperUsuario == true || usuarioLogueado.ToString().Equals("manager") || usuarioLogueado.ToString().Contains("Henry") || usuarioLogueado.ToString().Contains("hdistefa") || usuarioLogueado.ToString().Contains("Olivier") || usuarioLogueado.ToString().Contains("Ugarte"))
-                {
+                /*if (esSuperUsuario == true || usuarioLogueado.ToString().Equals("manager") || usuarioLogueado.ToString().Contains("Henry") || usuarioLogueado.ToString().Contains("hdistefa") || usuarioLogueado.ToString().Contains("Olivier") || usuarioLogueado.ToString().Contains("Ugarte"))
+                {*/
                     oButton.Item.Visible = true;
                     oButton2.Item.Visible = true; // Boton de enviar documento manualmente
-                }
+                /*}
                 else
                 {
                     oButton.Item.Visible = false;
                     oButton2.Item.Visible = false; // Boton de enviar documento manualmente
-                }
+                }*/
 
                 CargarMatrixEnvDoc(num, fechaDesde, fechaHasta, desde, hasta);
             }
@@ -47789,6 +47790,8 @@ namespace FacturacionElectronica
                                 List<clsObjDocumentoLineas> lineasDoc = new List<clsObjDocumentoLineas>();
                                 while (!oRSMyTable.EoF)
                                 {
+
+
                                     clsObjDocumentoLineas lineaDoc = new clsObjDocumentoLineas();
 
                                     lineaDoc.DocEntry = oRSMyTable.Fields.Item("DocEntry").Value;
@@ -48015,17 +48018,20 @@ namespace FacturacionElectronica
             Recordset rs = (Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
             rs.DoQuery(query);
             List<clsObjDocumentoLineas> lista = new List<clsObjDocumentoLineas>();
-            
+
             while (!rs.EoF)
             {
-                clsObjDocumentoLineas doc = new clsObjDocumentoLineas();
-                doc.ItemCode = rs.Fields.Item("NomItem").Value.ToString(); 
-                doc.Cantidad = Convert.ToDecimal(rs.Fields.Item("Cantidad").Value);
-                doc.UnidadMedida = rs.Fields.Item("UniMed").Value.ToString();
-                doc.PrecioAntesDelDescuento = Convert.ToDecimal(rs.Fields.Item("PrecioUnitario").Value);
-                doc.TotalLinea = Convert.ToDecimal(rs.Fields.Item("MontoItem").Value);
-                doc.MonedaLinea = rs.Fields.Item("Moneda").Value.ToString();
-                lista.Add(doc);
+                if (!rs.Fields.Item("NomItem").Value.ToString().Equals("-"))
+                {
+                    clsObjDocumentoLineas doc = new clsObjDocumentoLineas();
+                    doc.ItemCode = rs.Fields.Item("NomItem").Value.ToString();
+                    doc.Cantidad = Convert.ToDecimal(rs.Fields.Item("Cantidad").Value);
+                    doc.UnidadMedida = rs.Fields.Item("UniMed").Value.ToString();
+                    doc.PrecioAntesDelDescuento = Convert.ToDecimal(rs.Fields.Item("PrecioUnitario").Value);
+                    doc.TotalLinea = Convert.ToDecimal(rs.Fields.Item("MontoItem").Value);
+                    doc.MonedaLinea = rs.Fields.Item("Moneda").Value.ToString();
+                    lista.Add(doc);
+                }
                 rs.MoveNext();
             }
 
