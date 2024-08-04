@@ -166,3 +166,4 @@ C:\INVENZIS\Invenzis\Engraw\SAPB1_Sicfe_Engraw\FactElectronicaSICFE\obj\x64\Debu
 C:\INVENZIS\Invenzis\Engraw\SAPB1_Sicfe_Engraw\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.CopyComplete
 C:\INVENZIS\Invenzis\Engraw\SAPB1_Sicfe_Engraw\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.exe
 C:\INVENZIS\Invenzis\Engraw\SAPB1_Sicfe_Engraw\FactElectronicaSICFE\obj\x64\Debug\AddOn_Fact_Electronica_Sicfe.pdb
+C:\INVENZIS\Invenzis\Engraw\SAPB1_Sicfe_Engraw\FactElectronicaSICFE\obj\x64\Debug\FactElectronicaSICFE.csproj.AssemblyReference.cache

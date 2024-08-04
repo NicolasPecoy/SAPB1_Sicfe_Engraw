@@ -1035,7 +1035,7 @@ namespace FacturacionElectronica
                                             resultado = formPagosEfectuados("426", false);
                                             break;
                                         case "Cancelacion eResg": //Resguardo
-                                            if (!descEmpresa.ToString().Equals("POCHA") && !descEmpresa.ToString().Equals("SCHIN") && !descEmpresa.ToString().Equals("OBRIN") && !descEmpresa.ToString().Equals("ENGRW") && !descEmpresa.ToString().Equals("CABIN") && !descEmpresa.ToString().Equals("FRUTI") /*&& !descEmpresa.ToString().Equals("TECHM")*/)
+                                            if (!descEmpresa.ToString().Equals("POCHA") && !descEmpresa.ToString().Equals("ENGRW") && !descEmpresa.ToString().Equals("SCHIN") && !descEmpresa.ToString().Equals("OBRIN") && !descEmpresa.ToString().Equals("CABIN") && !descEmpresa.ToString().Equals("FRUTI") /*&& !descEmpresa.ToString().Equals("TECHM")*/)
                                                 resultado = formPagosEfectuados("426", true);
                                             else
                                             {
@@ -2887,7 +2887,7 @@ namespace FacturacionElectronica
                         guardaLogProceso(codigoFactura.ToString(), codigoFactura, "ERROR Validando si genera Resguardo", ex.Message.ToString());
                 }
 
-                if (sigue == true)
+                if (sigue == true || pEsCancelacion)
                 {
                     String xmlFActuraCliente = "";
                     if (!descEmpresa.ToString().Equals("FITCO") && !descEmpresa.ToString().Equals("FIOCI"))
@@ -27729,17 +27729,21 @@ namespace FacturacionElectronica
                                                 string razonReferencia = "Referencia a documento no electrónico ";
                                                 if (tipo == 0)
                                                 {
-                                                    string tipoCfe = oRSMyTable.Fields.Item("U_TIPOCFE_REFERENCIA").Value; // Obtengo el campo Tipo del documento de Referencia.
-
-                                                    if (String.IsNullOrEmpty(tipoCfe) || tipoCfe.ToString().Equals("XXX"))
+                                                    try
                                                     {
-                                                        tipoCfe = "0"; // Si no es un documento electrónico, le pone el tipo en 0
-                                                        if (oRSMyTable.Fields.Item("U_RAZON_REFERENCIA").IsNull() == BoYesNoEnum.tNO)
-                                                            if (!String.IsNullOrEmpty(oRSMyTable.Fields.Item("U_RAZON_REFERENCIA").Value))
-                                                                razonReferencia = oRSMyTable.Fields.Item("U_RAZON_REFERENCIA").Value;
-                                                    }
+                                                        string tipoCfe = oRSMyTable.Fields.Item("U_TIPOCFE_REFERENCIA").Value; // Obtengo el campo Tipo del documento de Referencia.
 
-                                                    tipo = Convert.ToInt32(tipoCfe.ToString());
+                                                        if (String.IsNullOrEmpty(tipoCfe) || tipoCfe.ToString().Equals("XXX"))
+                                                        {
+                                                            tipoCfe = "0"; // Si no es un documento electrónico, le pone el tipo en 0
+                                                            if (oRSMyTable.Fields.Item("U_RAZON_REFERENCIA").IsNull() == BoYesNoEnum.tNO)
+                                                                if (!String.IsNullOrEmpty(oRSMyTable.Fields.Item("U_RAZON_REFERENCIA").Value))
+                                                                    razonReferencia = oRSMyTable.Fields.Item("U_RAZON_REFERENCIA").Value;
+                                                        }
+
+                                                        tipo = Convert.ToInt32(tipoCfe.ToString());
+                                                    }
+                                                    catch (Exception ex) { }
                                                 }
 
                                                 if (String.IsNullOrEmpty(serie) || nro == 0)
@@ -28942,7 +28946,7 @@ namespace FacturacionElectronica
                             //if (descEmpresa.Equals("AEG")) //ASPL - 2019.10.11 - Monto total de la linea. Comentado 2019.10.29
                             //    montoSujetoRetencion = (decimal)oRSMyTable3.Fields.Item("LineTotal").Value; //Importe Base
 
-                            decimal tasaResguardo = (decimal)oRSMyTable3.Fields.Item("PrctBsAmnt").Value; // Rate estaba mal
+                            decimal tasaResguardo = (decimal)oRSMyTable3.Fields.Item("Rate").Value; // Rate estaba mal
                             string codigoCuentaDGI = (string)oRSMyTable3.Fields.Item("U_COD_DGI").Value;
 
                             if (descEmpresa.ToString().Equals("OBRIN")) // Si es Obrinel
@@ -28988,21 +28992,34 @@ namespace FacturacionElectronica
                                                 try
                                                 {
                                                     RetPerc_Resg itemRetPer = new RetPerc_Resg();
-                                                    itemRetPer.MntSujetoaRet = (decimal)oRSMyTable3.Fields.Item("TxblAmntSC").Value;
+                                                    itemRetPer.MntSujetoaRet = (decimal)oRSMyTable.Fields.Item("Max1099").Value;
                                                     itemRetPer.MntSujetoaRet = Math.Round(itemRetPer.MntSujetoaRet, 2); // Redondeos
                                                     itemRetPer.CodRet = (string)oRSMyTable3.Fields.Item("U_COD_DGI").Value;
 
-                                                    /*if (tasaResguardo > 0)
+                                                    itemRetPer.Tasa = (decimal)oRSMyTable3.Fields.Item("PrctBsAmnt").Value;
+                                                    itemRetPer.Tasa = Math.Round(itemRetPer.Tasa, 2);
+
+                                                    if (itemRetPer.Tasa > 0)
                                                     {
-                                                        itemRetPer.MntSujetoaRet = (100 * itemRetPer.MntSujetoaRet) / tasaResguardo;
+                                                        itemRetPer.MntSujetoaRet = Math.Abs((itemRetPer.MntSujetoaRet * (tasaResguardo / 100)));
+                                                        //itemRetPer.MntSujetoaRet = Math.Abs((itemRetPer.MntSujetoaRet/ itemRetPer.Tasa) * 100 );
+                                                        itemRetPer.MntSujetoaRet = Math.Round(itemRetPer.MntSujetoaRet, 2);
+                                                    }
+
+
+
+                                                    /*if (itemRetPer.Tasa > 0)
+                                                    {
+                                                        itemRetPer.MntSujetoaRet = (100 * itemRetPer.MntSujetoaRet) / itemRetPer.Tasa;
                                                         itemRetPer.MntSujetoaRet = Math.Round(itemRetPer.MntSujetoaRet, 2);
                                                     }*/
 
-                                                    itemRetPer.Tasa = (decimal)oRSMyTable3.Fields.Item("PrctBsAmnt").Value;
-                                                    itemRetPer.Tasa = Math.Round(itemRetPer.Tasa, 2);
+
                                                     itemRetPer.TasaSpecified = true;
-                                                    itemRetPer.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value;
+                                                    itemRetPer.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value;
                                                     itemRetPer.ValRetPerc = Math.Round(itemRetPer.ValRetPerc, 2); // Redondeos
+
+
                                                     arrayItemRetPer[cont] = itemRetPer;
                                                     //item.RetencPercep[0] = itemRetPer;
                                                     item.RetencPercep = new RetPerc_Resg[oRSMyTable3.RecordCount];
@@ -29012,8 +29029,12 @@ namespace FacturacionElectronica
 
                                                     Totales_ResgRetencPercep totRetPerUnidad = new Totales_ResgRetencPercep();
                                                     totRetPerUnidad.CodRet = (string)oRSMyTable3.Fields.Item("U_COD_DGI").Value;
-                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmntSC").Value;
+                                                    totRetPerUnidad.ValRetPerc = (decimal)oRSMyTable3.Fields.Item("WTAmnt").Value;
                                                     totRetPerUnidad.ValRetPerc = Math.Round(totRetPerUnidad.ValRetPerc, 2);
+                                                    if (pEsCancelacion)
+                                                    {
+                                                        totRetPerUnidad.ValRetPerc = totRetPerUnidad.ValRetPerc * -1;
+                                                    }
                                                     arrayRetPer[cont] = totRetPerUnidad;
                                                 }
                                                 catch (Exception ex)
@@ -29240,15 +29261,35 @@ namespace FacturacionElectronica
 
                             factura.Encabezado = encabezado;
 
-                            sicfeAdenda += "Observaciones:    " + oRSMyTable.Fields.Item("Comments").Value + "<br>"; // ObservacionesFijas 
+                            //sicfeAdenda += "Observaciones:    " + oRSMyTable.Fields.Item("Comments").Value + "<br>"; // ObservacionesFijas 
 
                             if (descEmpresa.ToString().Equals("OBRIN")) // Si es Obrinel
                             {
                                 DateTime fechaTaxDate = Convert.ToDateTime(oRSMyTable.Fields.Item("TaxDate").Value.ToString());
                                 sicfeAdenda += "Número de Factura: " + oRSMyTable.Fields.Item("NumAtCard").Value.ToString() + ". Fecha: " + fechaTaxDate.ToShortDateString() + "<br>";
                             }
-                            else
-                                sicfeAdenda += "Número Resguardo: " + codigoFactura.ToString() + "<br>";
+                            else if (descEmpresa.ToString().Equals("ENGRW")) // Si es Engraw
+                            {
+                                try
+                                {
+                                    sicfeAdenda += "Orden de Compra: " + oRSMyTable.Fields.Item("U_PO").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Boleta de entrada: " + oRSMyTable.Fields.Item("U_FL_BOLETA").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Nombre de Agente: " + oRSMyTable.Fields.Item("U_NOMAG").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Número primario: " + oRSMyTable.Fields.Item("DocNum").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Certificado: " + oRSMyTable.Fields.Item("U_CERTIFICADO").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Observaciones: " + oRSMyTable.Fields.Item("Comments").Value.ToString() + " \r\n";
+                                }
+                                catch (Exception ex)
+                                {
+                                    guardaLogProceso(pFormFactura.ToString(), codigoFactura, "ERROR al Adenda en la boleta", $"{ex.Message.ToString()} Stack Trace: {ex.StackTrace}");
+                                }
+                            }
+
 
                             if (descEmpresa.Equals("AEG"))
                                 sicfeAdenda += "Número Documento: " + strDocumento + "<br>";
@@ -34539,8 +34580,16 @@ namespace FacturacionElectronica
                                         hayGastosAdicionales = true;
                                     }
                                 }
+                                if (!pFormFactura.Equals("181"))
+                                {
 
-                                objDoc.lineas = QueryALista("SELECT * FROM IVZ_FE_OBJ18_ITEMS WHERE DocEntry = " + codigoDocEntry);
+                                    objDoc.lineas = QueryALista("SELECT * FROM IVZ_FE_OBJ18_ITEMS WHERE DocEntry = " + codigoDocEntry);
+
+                                }
+                                else if (pFormFactura.Equals("181") && !objDoc.lineas.Any(x => x.ItemCode.Contains("Ajuste")))
+                                {
+                                    objDoc.lineas = QueryALista("SELECT * FROM IVZ_FE_OBJ18_ITEMS WHERE DocEntry = " + codigoDocEntry);
+                                }
                                 //TotalItemsNoGravados = 0;
                                 Item_Det_Boleta[] detalle = new Item_Det_Boleta[objDoc.lineas.Count];
 
@@ -34549,7 +34598,7 @@ namespace FacturacionElectronica
                                 {
                                     for (int l = 0; l < objDoc.lineas.Count; l++)
                                     {
-                                        
+
                                         clsObjDocumentoLineas lineaRec = objDoc.lineas[l];
                                         // Solo para la Tentacion, por los problemas de descuento y redondeo
                                         if (descEmpresa.ToString().Equals("TENTA") && objDoc.DescuentoDocPorcentaje != 0 && (montoDescuentoGlobal != 0 || montoDescuentoGlobalME != 0))
@@ -34649,6 +34698,11 @@ namespace FacturacionElectronica
                                                     item.UniMed = "LTR"; // Litro
                                                 else
                                                     item.UniMed = "EA"; // Unidad
+                                            }
+
+                                            if (descEmpresa.ToString().Equals("ENGRW"))
+                                            {
+                                                item.UniMed = "Kg"; //Se agrega unidad de medida especifica para Engraw Nicolas Pecoy
                                             }
 
                                             try
@@ -35030,6 +35084,11 @@ namespace FacturacionElectronica
                                             TotalItemsNoGravados += item.MontoItem;
                                         }
                                         else if (indicador.Equals("15") || !String.IsNullOrEmpty(oRSMyTable.Fields.Item("NumAtCard").Value.ToString()))
+                                        {
+                                            item.IndFact = Item_Det_BoletaIndFact.Item15; // Contribuyente IMEBA
+                                            TotalItemsNoGravados += item.MontoItem;
+                                        }
+                                        else
                                         {
                                             item.IndFact = Item_Det_BoletaIndFact.Item15; // Contribuyente IMEBA
                                             TotalItemsNoGravados += item.MontoItem;
@@ -35729,6 +35788,28 @@ namespace FacturacionElectronica
                             }
                             else
                                 esContado = true;  // Verifico si es Contado o No para saber cuantas veces tengo que imprimir el PDF
+
+                            if (descEmpresa.ToString().Equals("ENGRW")) // Si es Engraw
+                            {
+                                try
+                                {
+                                    sicfeAdenda += "Orden de Compra: " + oRSMyTable.Fields.Item("U_PO").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Boleta de entrada: " + oRSMyTable.Fields.Item("U_FL_BOLETA").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Nombre de Agente: " + oRSMyTable.Fields.Item("U_NOMAG").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Número primario: " + oRSMyTable.Fields.Item("DocNum").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Certificado: " + oRSMyTable.Fields.Item("U_CERTIFICADO").Value.ToString() + " \r\n";
+                                    sicfeAdenda += "\r\n";
+                                    sicfeAdenda += "Observaciones: " + oRSMyTable.Fields.Item("Comments").Value.ToString() + " \r\n";
+                                }
+                                catch (Exception ex)
+                                {
+                                    guardaLogProceso(pFormFactura.ToString(), codigoFactura, "ERROR al Adenda en la boleta", $"{ex.Message.ToString()} Stack Trace: {ex.StackTrace}");
+                                }
+                            }
 
                             XmlSerializer ser = new XmlSerializer(typeof(CFEDefTypeEBoleta));
                             using (var stream = new MemoryStream())
@@ -43612,7 +43693,8 @@ namespace FacturacionElectronica
                         }
                         break;
                     case "141":
-                        query = "UPDATE OPCH set FolioPref = isnull(FolioPref,'" + serie.ToString() + "'), FolioNum = isnull(FolioNum,'" + nro.ToString() + "'), U_IVZ_RESGUARDO = (CASE When FolioNum IS NOT NULL THEN '" + serie.ToString() + nro.ToString() + "' END), " + campoReferencia + " = '" + tipo.ToString() + "',Printed = 'Y' where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "' "; // Factura de Proveedor
+                        //query = "UPDATE OPCH set FolioPref = isnull(FolioPref,'" + serie.ToString() + "'), FolioNum = isnull(FolioNum,'" + nro.ToString() + "'), U_IVZ_RESGUARDO = (CASE When FolioNum IS NOT NULL THEN '" + serie.ToString() + nro.ToString() + "' END), " + campoReferencia + " = '" + tipo.ToString() + "',Printed = 'Y' where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "' "; // Factura de Proveedor
+                        query = "UPDATE OPCH set U_IVZ_RESGUARDO =  '" + serie.ToString() + " " + nro.ToString() + "' , " + campoReferencia + " = '" + tipo.ToString() + "',Printed = 'Y' where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "' "; // Factura de Proveedor
                         queryAsientos = "UPDATE OJDT set FolioPref = '" + serie.ToString() + "', FolioNum = '" + nro.ToString() + "' where TransId = (select TransId from OPCH where DocNum = '" + pCodigoFactura + "' and DocEntry = '" + pDocEntry + "') ";
                         if (tipoConexionBaseDatos.ToString().Equals("HANNA"))
                         {
@@ -45605,7 +45687,7 @@ namespace FacturacionElectronica
                     }
 
                     // Notas de créditos de Proveedor
-                    query = "select CodResguardo as DocEntry,DocNum, DocDate, CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotalSy else DocTotal end as DocTotal, 'Cancelacion eResg' as Tipo from ORPC as ovp " +
+                    query = "select DISTINCT DocNum as DocEntry,DocNum, DocDate, CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotalSy else DocTotal end as DocTotal, 'Cancelacion eResg' as Tipo from ORPC as ovp " +
                      "inner join ControlFE as cfe on cfe.DocEntry = ovp.DocEntry and cfe.ObjType = 19 " +
                      " where cfe.Estado = '0' AND CodResguardo is not null and CodResguardo <> '' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
 
@@ -46203,7 +46285,7 @@ namespace FacturacionElectronica
                         oRSMyTable.MoveNext();
                     }
 
-                    query = "select ovp.DocEntry,DocNum, DocDate, ovp.CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotal else DocTotalFC end as DocTotal, 'Cancelacion Boleta' as Tipo from ORPC as ovp " +
+                    query = "select DISTINCT ovp.DocEntry,DocNum, DocDate, ovp.CardName, case when DocCur = '" + monedaStrSimbolo.ToString() + "' or DocCur = '" + monedaStrISO.ToString() + "' then DocTotal else DocTotalFC end as DocTotal, 'Cancelacion Boleta' as Tipo from ORPC as ovp " +
                     "inner join ControlFE as cfe on cfe.DocEntry = ovp.DocEntry and cfe.ObjType = 19 " +
                     "inner join OCRD as oc on oc.CardCode = ovp.CardCode and oc.CardType = 'S' " +
                     " where cfe.Estado = '0' AND QryGroup19 = 'Y' and Canceled = 'N' AND isnull(CodResguardo, '') = '' "; // inner join OACT as oac on oac.AcctCode = ovp.CashAcct   EL INNER ANTES SE USABA
@@ -46917,8 +46999,8 @@ namespace FacturacionElectronica
                 // Boton de dar baja manual al documento solo para usuario manager o Henry
                 /*if (esSuperUsuario == true || usuarioLogueado.ToString().Equals("manager") || usuarioLogueado.ToString().Contains("Henry") || usuarioLogueado.ToString().Contains("hdistefa") || usuarioLogueado.ToString().Contains("Olivier") || usuarioLogueado.ToString().Contains("Ugarte"))
                 {*/
-                    oButton.Item.Visible = true;
-                    oButton2.Item.Visible = true; // Boton de enviar documento manualmente
+                oButton.Item.Visible = true;
+                oButton2.Item.Visible = true; // Boton de enviar documento manualmente
                 /*}
                 else
                 {
@@ -48037,6 +48119,45 @@ namespace FacturacionElectronica
 
             return lista;
         }
+
+        /*public bool AttachPdfToDocument(string documentType, int documentEntry, string pdfFilePath)
+        {
+            try
+            {
+
+                Documents oDocument = (Documents)oCompany.GetBusinessObject(BoObjectTypes.oPurchaseInvoices); // Change this to the appropriate document type
+
+                if (!oDocument.GetByKey(documentEntry))
+                {
+                    throw new Exception($"Document with entry {documentEntry} not found.");
+                }
+
+                Attachments oAttachments = oDocument.Attachments;
+
+                if (File.Exists(pdfFilePath))
+                {
+                    oAttachments.Add();
+                    int attachmentIndex = oAttachments.Count - 1;
+                    oAttachments.FileName = pdfFilePath;
+                    oAttachments.AbsoluteEntry = documentEntry;
+                    oAttachments.Update();
+                    return true;
+                }
+                else
+                {
+                    throw new Exception($"PDF file not found at '{pdfFilePath}'.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions here
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+            }
+        }*/
 
         public string obtenerQueryAgrupado(int pDocEntry, int pDocNum, string pFormFactura, bool pAgrupado, string pTabla, string pTablaLineas, string pFiltroAdicional)
         {
